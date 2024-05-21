@@ -6,7 +6,7 @@ public record TransacaoCNAB(
     Integer tipo,
     String data,
     BigDecimal valor,
-    Long cpfCnpj,
+    String cpfCnpj,
     String cartao,
     String hora,
     String donoDaLoja,
