@@ -1,4 +1,4 @@
-package br.com.jfb.cnabnormalizerbackend.model;
+package br.com.jfb.cnabnormalizerbackend.domain;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -21,10 +21,9 @@ public record Transacao(
   // Esse método vai apenas alterar o valor seguindo a convenção de 'Wither pattern'
   public Transacao withValor(BigDecimal valor) {
     return new Transacao(
-        this.id(), this.tipo(), this.data(),
-        valor,
-        this.cpfCnpj(), this.cartao(), this.hora(),
-        this.donoDaLoja(), this.nomeDaLoja());
+        id, tipo, data, valor,
+        cpfCnpj, cartao, hora,
+        donoDaLoja, nomeDaLoja);
   }
 
   public Transacao withData(String data) throws ParseException {
@@ -32,10 +31,10 @@ public record Transacao(
     var date = dateFormat.parse(data);
 
     return new Transacao(
-        this.id(), this.tipo(), new Date(date.getTime()),
-        this.valor, this.cpfCnpj(),
-        this.cartao(), this.hora(), this.donoDaLoja(),
-        this.nomeDaLoja());
+        id, tipo, new Date(date.getTime()),
+        valor, cpfCnpj,
+        cartao, hora, donoDaLoja,
+        nomeDaLoja);
   }
 
   public Transacao withHora(String hora) throws ParseException {
@@ -43,8 +42,8 @@ public record Transacao(
     var date = dateFormat.parse(hora);
 
     return new Transacao(
-        this.id(), this.tipo(), this.data(), this.valor(),
-        this.cpfCnpj(), this.cartao(), new Time(date.getTime()),
-        this.donoDaLoja(), this.nomeDaLoja());
+        id, tipo, data, valor,
+        cpfCnpj, cartao, new Time(date.getTime()),
+        donoDaLoja, nomeDaLoja);
   }
 }

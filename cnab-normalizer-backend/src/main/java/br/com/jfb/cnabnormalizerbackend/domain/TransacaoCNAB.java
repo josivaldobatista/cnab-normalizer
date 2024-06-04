@@ -1,4 +1,4 @@
-package br.com.jfb.cnabnormalizerbackend.model;
+package br.com.jfb.cnabnormalizerbackend.domain;
 
 import java.math.BigDecimal;
 
